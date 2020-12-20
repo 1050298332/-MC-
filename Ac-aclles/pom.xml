@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>top.mccsdl.Aclles</groupId>
-    <artifactId>Aclles</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>Loginmsg</artifactId>
+    <version>2.3</version>
     <packaging>jar</packaging>
 
     <name>Aclles</name>

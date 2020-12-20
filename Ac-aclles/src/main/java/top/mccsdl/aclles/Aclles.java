@@ -13,8 +13,8 @@ import java.io.File;
 
 
 public final class Aclles extends JavaPlugin{
-    String qz = "§6[Ac-aclles]";
-    Double bb = 2.0;
+    String qz= this.getConfig().getString("String");
+    Double bb = 2.2;
 
     String s ="													 \r\n" +
             " _______  _______  _        _        _______  _______ \r\n" +
@@ -35,7 +35,7 @@ public final class Aclles extends JavaPlugin{
         Bukkit.getConsoleSender().sendMessage(qz+"§a作者：Aclles 版本："+bb);
         Bukkit.getConsoleSender().sendMessage(qz+"§c如有对此插件任何疑问或建议 请联系作者qq:1050298332.");
         //监听器
-        Bukkit.getPluginManager().registerEvents(new AcListener(), this);
+        new AcListener(this);
         LoadConfig();
     }
     public void LoadConfig(){
@@ -64,47 +64,28 @@ public final class Aclles extends JavaPlugin{
             Bukkit.getServer().shutdown();
         }
     }
-
     public boolean onCommand(CommandSender sender, Command cmd,String label,String... args){
         if (!(sender instanceof Player)) {
             getLogger().info("后台无法执行玩家命令!请使用玩家身份执行.");
             return true;
-        }else  if (cmd.getName().equalsIgnoreCase("Ac")){
+        }else  if (cmd.getName().equalsIgnoreCase("LoginMsg")){
             if (args.length == 0 ){
-                sender.sendMessage(qz+"§a========[§6Ac-测试插件]§a========");
+                sender.sendMessage(qz+"§a========[§6LoginMsg-登录消息插件]§a========");
                 sender.sendMessage(qz+"§a作者：Aclles");
-                sender.sendMessage(qz+"§a指令:");
-                sender.sendMessage(qz+"§a  /Ac open gui ----- 打开GUI界面");
-                sender.sendMessage(qz+"§a- /Ac info   --- 查看插件信息");
                 //检测用户是否拥有重载权限 显示指令
-                if (sender.hasPermission("Ac.admin")){
-                    sender.sendMessage(qz+"§a- /Ac reload --- 重载插件");
+                if (sender.hasPermission("LoginMsg.reload")){
+                    sender.sendMessage(qz+"§a- /LoginMsg reload --- 重载插件");
                 }
                 sender.sendMessage(qz+"§a=============================");
             }else if (args.length == 1) {
-                    if (args[0].equalsIgnoreCase("info")) {
-                        sender.sendMessage(qz + "§a========[§6Ac-测试插件]§a========");
-                        sender.sendMessage(qz + "§a指令info执行");
-                        sender.sendMessage(qz + "§a作者：Aclles");
-                        sender.sendMessage(qz + "§a=============================");
-                    }
                     if (args[0].equalsIgnoreCase("reload")) {
-                        if (!sender.hasPermission("Ac.admin")) {
-                            sender.sendMessage(qz + "§c你没权限,垃圾");
+                        if (!sender.hasPermission("LoginMsg.reload")) {
+                            sender.sendMessage(qz + "§c你没权限嘻嘻嘻");
                             return true;
                         }
-
                         this.reloadConfig();
                         sender.sendMessage(qz + "§a重载完成！");
                     }
-                    if (args[0].equalsIgnoreCase("open")) {
-                        if (args[1].equalsIgnoreCase("gui")) {
-                            if (sender.hasPermission("Ac.gui")) {
-                                return true;
-                            } else sender.sendMessage("§2您没有执行打开GUI的权限,请联系管理员获取!");
-                        }
-
-                        }
                     }
             }
         return true;

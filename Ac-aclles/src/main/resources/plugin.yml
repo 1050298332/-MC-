@@ -1,5 +1,5 @@
-name: Ac-aclles
-version: 2.0
+name: LoginMsg
+version: 2.2
 main: top.mccsdl.aclles.Aclles
 api-version: 1.12
 authors: [Aclles]
@@ -7,19 +7,16 @@ description: dome
 
 #插件需要注册的命令
 commands:
-  #命令是Ac
-  Ac:
+  #命令是LoginMsg
+  LoginMsg:
     #描述
     description: "打开插件介绍"
     #用法
-    usage: /Ac
+    usage: /LoginMsg
 permissions:
-  # 打开GUI界面的权限
-  Ac.gui:
-    description: "拥有这个权限的用户将拥有使用GUI普通用户部分的权限,但不包括OP部分."
-    default: op
-  Ac.admin:
-    description: "拥有这个权限的用户将拥有使用Ac完全权限"
+  # 重载权限
+  LoginMsg.reload:
+    description: "此权限重启插件"
     default: op
 
 

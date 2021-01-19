@@ -14,7 +14,7 @@ import java.io.File;
 
 public final class Aclles extends JavaPlugin{
     String qz= this.getConfig().getString("String");
-    Double bb = 2.2;
+    Double bb = 2.5;
 
     String s ="													 \r\n" +
             " _______  _______  _        _        _______  _______ \r\n" +
@@ -33,7 +33,7 @@ public final class Aclles extends JavaPlugin{
         getLogger().info(s);
         Bukkit.getConsoleSender().sendMessage(qz+"§a插件启动成功.");
         Bukkit.getConsoleSender().sendMessage(qz+"§a作者：Aclles 版本："+bb);
-        Bukkit.getConsoleSender().sendMessage(qz+"§c如有对此插件任何疑问或建议 请联系作者qq:1050298332.");
+        Bukkit.getConsoleSender().sendMessage(qz+"§c如有对此插件任何疑问或建议 请联系作者邮箱:Aclles@163.com");
         //监听器
         new AcListener(this);
         LoadConfig();
@@ -70,24 +70,31 @@ public final class Aclles extends JavaPlugin{
             return true;
         }else  if (cmd.getName().equalsIgnoreCase("LoginMsg")){
             if (args.length == 0 ){
-                sender.sendMessage(qz+"§a========[§6LoginMsg-登录消息插件]§a========");
+                sender.sendMessage(qz+"§a[§6LoginMsg-插件§a]");
                 sender.sendMessage(qz+"§a作者：Aclles");
+                sender.sendMessage(qz+"作者邮箱:Aclles@163.com");
+
                 //检测用户是否拥有重载权限 显示指令
                 if (sender.hasPermission("LoginMsg.reload")){
                     sender.sendMessage(qz+"§a- /LoginMsg reload --- 重载插件");
                 }
-                sender.sendMessage(qz+"§a=============================");
             }else if (args.length == 1) {
-                    if (args[0].equalsIgnoreCase("reload")) {
-                        if (!sender.hasPermission("LoginMsg.reload")) {
-                            sender.sendMessage(qz + "§c你没权限嘻嘻嘻");
-                            return true;
-                        }
-                        this.reloadConfig();
-                        sender.sendMessage(qz + "§a重载完成！");
+                if (args[0].equalsIgnoreCase("onup")){
+                    if (!sender.hasPermission("LoginMsg.onup")) {
+                        sender.sendMessage(qz + "§c你没权限嘻嘻嘻");
+                        return true;
                     }
+                }
+                if (args[0].equalsIgnoreCase("reload")) {
+                    if (!sender.hasPermission("LoginMsg.reload")) {
+                        sender.sendMessage(qz + "§c你没权限嘻嘻嘻");
+                        return true;
                     }
+                    this.reloadConfig();
+                    sender.sendMessage(qz + "§a重载完成！");
+                }
             }
-        return true;
         }
+        return false;
+    }
 }

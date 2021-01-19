@@ -1,22 +1,21 @@
 name: LoginMsg
-version: 2.2
+version: ${project.version}
 main: top.mccsdl.aclles.Aclles
 api-version: 1.12
 authors: [Aclles]
-description: dome
+description: It's a collection of features That I need
 
-#插件需要注册的命令
 commands:
-  #命令是LoginMsg
   LoginMsg:
-    #描述
-    description: "打开插件介绍"
-    #用法
-    usage: /LoginMsg
+    description: Access to /LoginMsg command
+    usage: /<command>
 permissions:
-  # 重载权限
+  LoginMsg.*:
+    description: Gives access to all doorman commands
+    children:
+      LoginMsg.reload: true
   LoginMsg.reload:
-    description: "此权限重启插件"
+    description: <plugin name>.reload
     default: op
-
+    permission-message: You don't have <permission>
 

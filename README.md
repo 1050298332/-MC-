@@ -8,6 +8,10 @@
   <a href="https://github.com/1050298332/-MC-"><img src="https://img.shields.io/badge/Aclles-Java-yellow"></a>
 </p>
 
+
+[![Stargazers over time](https://starchart.cc/hupo376787/A-Beautiful-UWP-Frame.svg)](https://starchart.cc/hupo376787/A-Beautiful-UWP-Frame)
+      
+
 目录:
 
 <p align="center" >

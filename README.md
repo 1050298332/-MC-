@@ -9,7 +9,7 @@
 </p>
 
 
-[![Stargazers over time](https://starchart.cc/hupo376787/A-Beautiful-UWP-Frame.svg)](https://starchart.cc/hupo376787/A-Beautiful-UWP-Frame)
+[![Stargazers over time](https://starchart.cc/1050298332/-MC-.svg)](https://starchart.cc/1050298332/-MC-)
       
 
 目录:
